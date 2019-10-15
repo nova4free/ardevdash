@@ -11,6 +11,9 @@ class GoogleAnalyticsAccount extends Model
      */
     protected $guarded = [];
 
+    /**
+     * Belows to one account entry
+     */
     public function account()
     {
         return $this->belongsTo('App\Account');
