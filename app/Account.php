@@ -17,8 +17,8 @@ class Account extends Model
     /**
      * Get the client logins for this account
      */
-    public function clientLogin()
+    public function clientlogins()
     {
-        return $this->hasMany('App\ClientLogin');
+        return $this->hasMany(ClientLogin::class);
     }
 }

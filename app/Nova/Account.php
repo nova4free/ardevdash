@@ -56,10 +56,10 @@ class Account extends Resource
             // Contact panel
             new Panel('Contact information', $this->contactFields()),
             // Client logins
-            //new Panel('Client logins', $this->clientLoginFields()),
-            NestedForm::make('ClientLogin'),
+            HasMany::make('ClientLogins'),
+            NestedForm::make('ClientLogins'),
 
-            Currency::make('Total budget'),
+            //Currency::make('Total budget'),
             Text::make('Services')->rules('required'),
         ];
     }
@@ -74,11 +74,11 @@ class Account extends Resource
         return [
             Text::make('Company name')->sortable()->rules('required'),
             Place::make('Company address line 1')->hideFromIndex()->rules('required'),
-            Text::make('Company address line 2')->hideFromIndex()->rules('required'),
+            Text::make('Company address line 2')->hideFromIndex(),
             Text::make('Company city')->hideFromIndex()->rules('required'),
             Text::make('Company postcode')->hideFromIndex()->rules('required'),
             Country::make('Company country')->hideFromIndex()->rules('required'),
-            Text::make('Company email')->hideFromIndex()->rules('required, email:rfc,dns'),
+            Text::make('Company email')->hideFromIndex()->rules('required', 'email', 'max:254'),
             Text::make('Company tel no')->hideFromIndex()->rules('required'),
         ];
     }
@@ -94,20 +94,7 @@ class Account extends Resource
             Text::make('Contact name')->sortable()->rules('required'),
             Text::make('Contact job title')->hideFromIndex()->rules('required'),
             Text::make('Contact tel no')->hideFromIndex()->rules('required'),
-            Text::make('Contact email')->hideFromIndex()->rules('required'),
-        ];
-    }
-
-    /**
-     * Get the client login fields for the Account
-     *
-     * @return array
-     */
-    protected function clientLoginFields()
-    {
-        return [
-            //HasMany::make('ClientLogins'),
-            //NestedForm::make('ClientLogin')
+            Text::make('Contact email')->hideFromIndex()->rules('required', 'email', 'max:254'),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Select;
@@ -49,6 +50,7 @@ class ClientLogin extends Resource
             ])->displayUsingLabels(),
             Text::make('Username'),
             Text::make('Password'),
+            BelongsTo::make('Account')
         ];
     }
 

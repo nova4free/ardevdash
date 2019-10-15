@@ -16,15 +16,16 @@ class CreateClientLoginsTable extends Migration
         Schema::create('client_logins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('account_id');
+            $table->foreign('account_id')->references('id')->on('accounts');
             $table->timestamps();
             $table->string('type');
             $table->string('username');
             $table->string('password');
         });
 
-        Schema::table('client_logins', function(Blueprint $table) {
-            $table->foreign('account_id')->references('id')->on('accounts');
-        });
+//        Schema::table('client_logins', function(Blueprint $table) {
+//            $table->foreign('account_id')->references('id')->on('accounts');
+//        });
     }
 
     /**
