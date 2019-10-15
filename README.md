@@ -5,4 +5,4 @@ Installation:
 3) create a database
 4) php artisan migrate
 5) php artisan nova:user
-
+6) TBC
