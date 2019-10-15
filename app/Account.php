@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     /**
+     * Allow all fields to be fillable, i.e. none guareded.
+     */
+    protected $guarded = [];
+
+    /**
      * Get the users for this account
      */
     public function users()
@@ -20,5 +25,13 @@ class Account extends Model
     public function clientlogins()
     {
         return $this->hasMany(ClientLogin::class);
+    }
+
+    /**
+     * Has one Google Analytics Account ID
+     */
+    public function googleAnalyticsAccount()
+    {
+        return $this->hasOne('App\GoogleAnalyticsAccount');
     }
 }
