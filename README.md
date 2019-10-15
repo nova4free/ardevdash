@@ -6,3 +6,4 @@ Installation:
 4) php artisan migrate
 5) php artisan nova:user
 6) TBC
+7) TBC TBC
